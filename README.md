@@ -1,2 +1,2 @@
 # Jets_Comparison
-Jets comparison between Pythia, Herwig and Pawheg
+This is a simple project that allows to compare jets spectra for different event generators
