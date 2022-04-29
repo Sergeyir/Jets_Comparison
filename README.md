@@ -15,7 +15,7 @@ mkdir -p data/Jets
 ```
 # Requirments
 
-Root6 (https://root.cern/) \\
+Root6 (https://root.cern/) <br />
 Pythia8 (https://pythia.org/)
 Herwig7 (https://herwig.hepforge.org/)
 Powheg Box (https://powhegbox.mib.infn.it/)
