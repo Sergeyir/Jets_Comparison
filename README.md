@@ -26,8 +26,8 @@ Herwig read Herwig_gen.in
 After generation is done do similar thing with herwig_jets.cc as with pythia_jets.cc. Fastjet is also required for this step as with pythia
 
 ```sh
-make pythia_jets
-./pythia_jets
+make herwig_jets
+./herwig_jets
 ```
 
 #Pawheg
