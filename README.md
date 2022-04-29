@@ -2,6 +2,18 @@
 
 This is a simple project that allows to compare jets spectra /frac{d/sigma}{dp_Tdy} for different event generators - Pythia8 (https://pythia.org/), Herwig7 (https://herwig.hepforge.org/) and Pawheg (https://powhegbox.mib.infn.it/)
 
+To download run
+
+```sh
+git clone https://github.com/Sergeyir/Jets_Comparison
+```
+
+Before running any programm create directories in directory you've downloaded this project
+
+```sh
+mkdir -p data/Jets
+```
+
 #Pythia
 
 You need Pythia and Fastjet to be installed and paths in Makefile must be corrected for your configuration. Pythia will generate and process events and write jets spectra output as .txt file.
