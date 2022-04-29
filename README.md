@@ -28,7 +28,7 @@ mkdir -p data/Jets
 
 Paths in Makefile must be corrected for your configuration. Pythia will generate and process events and write jets spectra output as .txt file.
 
-Before launch change setting to yours in pythia_jets.cc.
+Before launch change setting to yours in pythia_jets.cc
 
 To launch:
 
@@ -45,7 +45,7 @@ First you need activate Herwig and go to directory Hewig_gen. Then you can gener
 Herwig read Herwig_gen.in
 ```
 
-After generation is done do similar thing with herwig_jets.cc as with pythia_jets.cc. Fastjet is also required for this step as with pythia
+After generation is done do similar thing with herwig_jets.cc as with pythia_jets.cc
 
 ```sh
 make herwig_jets
