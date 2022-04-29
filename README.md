@@ -17,7 +17,7 @@ make pythia_jets
 
 #Herwig
 
-First you need to install and activate Herwig and go to directory Hewig_gen. Then you can generate events in Herwig after you change event genetation parameters to yours in Herwig_gen.in, snippets/PPCollider.in and in snippets/HepMC.in
+First you need to install and activate Herwig and go to directory Hewig_gen. Then you can generate events in Herwig after you change event genetation parameters to yours in Herwig_gen.in, snippets/PPCollider.in and in snippets/HepMC.in. Herwig will write output as .HepMC file
 
 ```sh
 Herwig read Herwig_gen.in
@@ -41,3 +41,5 @@ After getting spectra for different programms set your parameters and output and
 ```sh
 root jetsComparison.cc
 ```
+
+This programm will draw all your specified spectra as root graphs (TGraph) on signle canvas and write it as .png file.
