@@ -1,4 +1,4 @@
-# Jets_Comparison
+# Overwiew
 
 This is a simple project that allows to compare jets spectra \frac{d\sigma}{dp_T dy} for different event generators - Pythia8(https://pythia.org/), Herwig7 (https://herwig.hepforge.org/) and Powheg (https://powhegbox.mib.infn.it/) in pp collisions
 
