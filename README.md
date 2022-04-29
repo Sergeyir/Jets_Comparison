@@ -15,11 +15,11 @@ mkdir -p data/Jets
 ```
 # Requirments
 
-Root6 (https://root.cern/) <br />
-Pythia8 (https://pythia.org/)
-Herwig7 (https://herwig.hepforge.org/)
-Powheg Box (https://powhegbox.mib.infn.it/)
-FastJet (http://fastjet.fr/)
+- Root6 (https://root.cern/) <br />
+- Pythia8 (https://pythia.org/) <br />
+- Herwig7 (https://herwig.hepforge.org/) <br />
+- Powheg Box (https://powhegbox.mib.infn.it/) <br />
+- FastJet (http://fastjet.fr/) <br />
 
 # Pythia
 
