@@ -18,7 +18,7 @@ To download run
 git clone https://github.com/Sergeyir/Jets_Comparison
 ```
 
-Before running any macro create directories in directory you've downloaded this project
+Before running any macro create directories in directory you've installed this project
 
 ```sh
 mkdir -p data/Jets
