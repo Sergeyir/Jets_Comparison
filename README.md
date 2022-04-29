@@ -13,7 +13,7 @@ Before running any macro create directories in directory you've downloaded this 
 ```sh
 mkdir -p data/Jets
 ```
-# Requirments
+# Required packages
 
 - Root6 (https://root.cern/) <br />
 - Pythia8 (https://pythia.org/) <br />
