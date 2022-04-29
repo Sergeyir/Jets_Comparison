@@ -14,7 +14,7 @@ Before running any macro create directories in directory you've downloaded this 
 mkdir -p data/Jets
 ```
 
-#Pythia
+# Pythia
 
 You need Pythia and Fastjet to be installed and paths in Makefile must be corrected for your configuration. Pythia will generate and process events and write jets spectra output as .txt file.
 
@@ -27,7 +27,7 @@ make pythia_jets
 ./pythia_jets
 ```
 
-#Herwig
+# Herwig
 
 First you need to install and activate Herwig and go to directory Hewig_gen. Then you can generate events in Herwig after you change event genetation parameters to yours in Herwig_gen.in, snippets/PPCollider.in and in snippets/HepMC.in. Herwig will write output as .HepMC file
 
@@ -42,11 +42,11 @@ make herwig_jets
 ./herwig_jets
 ```
 
-#Pawheg
+# Pawheg
 
 Not ready yet
 
-#Comparing jets
+# Comparing jets
 
 After getting spectra for different programms set your parameters and output and input files paths in jetsComparison.cc and run it via root (https://root.cern/)
 
