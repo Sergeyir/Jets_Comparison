@@ -9,7 +9,7 @@ This is a simple project that allows to compare jets spectra \frac{d\sigma}{dp_T
 - Herwig7     https://herwig.hepforge.org/ <br />
 - Powheg-Box  https://powhegbox.mib.infn.it/ <br />
 - FastJet3    http://fastjet.fr/ <br />
-- 
+
 # Installation
 
 To download run
