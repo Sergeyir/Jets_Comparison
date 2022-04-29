@@ -45,6 +45,13 @@ ifeq ($(FASTJET3_USE), true)
 else
 	$(error Error: $@ requires FASTJET3)
 endif
+	
+herwig_jets: herwig_jets.cc
+ifeq ($(FASTJET3_USE), true)
+	$(CXX) $@.cc -o $@ $(FASTJET3_INCLUDE) -w $(CXX_COMMON) $(FASTJET3_LIB)
+else
+	$(error Error: $@ requires FASTJET3)
+endif
 
 # Clean.
 clean:

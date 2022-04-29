@@ -1,0 +1,53 @@
+##################################################
+## Collider type
+##################################################
+
+read snippets/PPCollider.in
+read snippets/HepMC.in
+
+cd /Herwig/Generators
+set EventGenerator:NumberOfEvents 1000000
+set EventGenerator:RandomNumberGenerator:Seed 1
+set EventGenerator:DebugLevel 0
+set EventGenerator:PrintEvent 1000000
+
+# Beam parameters:
+set EventGenerator:EventHandler:LuminosityFunction:Energy 13000
+set EventGenerator:EventHandler:BeamA /Herwig/Particles/p+
+set EventGenerator:EventHandler:BeamB /Herwig/Particles/p+
+set EventGenerator:MaxErrors -1
+
+# Process setup
+# QCD 2-2 scattering:
+cd /Herwig/MatrixElements
+insert SubProcess:MatrixElements[0] MEQCD2to2
+
+##################################################
+## Process selection
+##################################################
+
+## Note that event generation may fail if no matching matrix element has
+## been found.  Coupling orders are with respect to the Born process,
+## i.e. NLO QCD does not require an additional power of alphas.
+
+# Set cuts
+# Use this for hard leading-jets in a certain pT window
+set /Herwig/Cuts/JetKtCut:MinKT 40*GeV        # minimum jet pT
+set /Herwig/Cuts/JetKtCut:MaxKT 13000*GeV        # maximum jet pT
+
+# Use this for hard leading-jets in a certain mHat window
+set /Herwig/Cuts/MinBiasCuts:MHatMin 0*GeV        # minimum jet mHat
+set /Herwig/Cuts/MinBiasCuts:MHatMax 13000*GeV        # maximum jet mHat
+
+# Make particles with c*tau > 10 mm stable:
+set /Herwig/Decays/DecayHandler:MaxLifeTime 10*mm
+set /Herwig/Decays/DecayHandler:LifeTimeOption Average
+
+set /Herwig/UnderlyingEvent/MPIHandler:IdenticalToUE 0
+##################################################
+## Save the generator
+##################################################
+
+#Run genetator
+cd /Herwig/Generators
+run TVT EventGenerator

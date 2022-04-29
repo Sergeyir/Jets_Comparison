@@ -1,50 +1,23 @@
-#include <array>
-#include <vector> 
-#include <fstream>
-#include <cmath>
-
-#include "Pythia8/Pythia.h"
-
 #include "fastjet/PseudoJet.hh"
 #include "fastjet/ClusterSequence.hh"
 
 #include "../utils/ProgressBar.cc"
+#include "../lib/HepMCReader.h"
 
-using namespace Pythia8;
 using namespace std;
 
 int main()
 {
-	Pythia pythia;
+	string input_file_name = "../data/Herwig_pp13000GeV.hepmc";
+	ofstream output_file("../data/Jets/herwig_pp13000.txt");
 	
-	pythia.readString("Beams:eCM = 13000.");
-	pythia.readString("HardQCD:all = on");
-	pythia.readString("Random:setSeed = on");
+	array <float, 8> inclusive_jets_entries, inclusive_jets_err;
 
-	pythia.readString("Next:numberShowEvent = 0");
-	pythia.readString("Next:numberCount = 0");
- 
-	pythia.readString("PhaseSpace:pTHatMin = 40");
-	pythia.readString("PhaseSpace:pTHatMax = 13000");
-	
-	pythia.readString("PhaseSpace:mHatMin = 0");
-	pythia.readString("PhaseSpace:mHatMax = 13000");
-	
-	pythia.readString("ParticleDecays:limitTau0 = On");
-	pythia.readString("ParticleDecays:tau0Max = 10.0");
-
-	pythia.init();
-	
-	ofstream output_file("../data/Jets/pythia_pp13000.txt");
-	
-	array <float, 8> inclusive_jets_entries;
-	array <float, 8> inclusive_jets_err;
-
-	array <float, 8> pt_point = {110, 130, 150, 185, 235, 285, 355, 450};	
+	array <float, 8> pt_point = {110, 130, 150, 185, 235, 285, 355, 450};
 
 	array <float, 8> pt_range_low = {100, 120, 140, 160, 210, 260, 310, 400};
 	array <float, 8> pt_range_high = {120, 140, 160, 210, 260, 310, 400, 500};
-
+	
 	unsigned const long	nEvent = 1000000;
 	const float R_param = 0.4;
 	const float rapidity_max = 0.3;
@@ -59,34 +32,39 @@ int main()
 	fastjet::Strategy strategy = fastjet::Best;
 	fastjet::JetDefinition jet_def(fastjet::antikt_algorithm, R_param);
 
-	unsigned long njets = 0, accepted_njets = 0, nojets_events;
+	unsigned long njets = 0, accepted_njets = 0, nojets_events = 0;
 
 	float progress = 0;
 	float progress_step = 0.01;
 
-	for (unsigned long int iEvent = 0; iEvent < nEvent; ++iEvent)
+	HepMCReader reader(input_file_name);
+
+	unsigned long int iEvent = 0;
+
+	double weights_sum_err = 0;
+
+	for (iEvent = 0; iEvent < nEvent; ++iEvent)
 	{
+		if (reader.isEnd()) break;
+
 		if ((float) iEvent/nEvent >= progress)
 		{
 			ProgressBar(progress); 
 			progress += progress_step;
 		}
 
+		reader.ReadNextEvent();
+		
 		fastjet::ClusterSequence cluster_seq(fjInputs, jet_def);
 
-		if (!pythia.next()) continue;
+		for (unsigned long int ipart = 0; ipart < reader.eventSize(); ipart++) {
 
-		for (unsigned long int ipart = 0; ipart < pythia.event.size(); ipart++) {
-
-			if (!pythia.event[ipart].isFinal()) continue;
-			//if (!pythia.event[ipart].isCharged()) continue;
-			//if (pythia.event[ipart].id() == 21) continue;
-	
-			// no neutrinos
+			if (!reader.isStable(ipart)) continue;
 			 
-			if (pythia.event[ipart].idAbs() == 12 || pythia.event[ipart].idAbs() == 14 || pythia.event[ipart].idAbs() == 16 || pythia.event[ipart].idAbs() == 18) continue;
+			// no neutrinos
+			if (abs(reader.id(ipart)) == 12 || abs(reader.id(ipart)) == 14 || abs(reader.id(ipart)) == 16 || abs(reader.id(ipart)) == 18) continue;
 				 
-			fjInputs.push_back( fastjet::PseudoJet(pythia.event[ipart].px(), pythia.event[ipart].py(), pythia.event[ipart].pz(), pythia.event[ipart].e()) );
+			fjInputs.push_back( fastjet::PseudoJet(reader.px(ipart), reader.py(ipart), reader.pz(ipart), reader.e(ipart)) );
 		}
 		
 		inclusiveJets = cluster_seq.inclusive_jets(jets_min_pt);
@@ -114,8 +92,8 @@ int main()
 				{
 					if (pT > pt_range_low[count] && pT < pt_range_high[count])
 					{	
-						inclusive_jets_entries[count] += pythia.info.weight();
-						inclusive_jets_err[count] = sqrt(pythia.info.weight()+pow(inclusive_jets_err[count],2));
+						inclusive_jets_entries[count] += reader.weight();
+						inclusive_jets_err[count] = sqrt(reader.weight()+pow(inclusive_jets_err[count],2));
 						accepted_njets++;
 
 						break;
@@ -126,10 +104,10 @@ int main()
 		sortedJets.clear();
 		fjInputs.clear();
 	}
-				
+
 	ProgressBar(1); 
-			
-	const float sigma_pb = pythia.info.sigmaGen()*1.0E9;
+				
+	const double sigma_pb = reader.sigmaGen();
 	 
 	cout << endl << "Sigma: " << sigma_pb << " pb" << endl << "Accepted jets:" << accepted_njets << " out of " << njets <<  endl;
 	cout << "Events without any jets found: " << nojets_events << " out of " << nEvent << endl;

@@ -2,10 +2,10 @@
 # Generated on Thu 21 Oct 2021 05:32:19 PM MSK with the user supplied options:
 
 # Install directory prefixes.
-PREFIX_BIN=/home/sergey/pythia8303/bin
-PREFIX_INCLUDE=/home/sergey/pythia8303/include
-PREFIX_LIB=/home/sergey/pythia8303/lib
-PREFIX_SHARE=/home/sergey/pythia8303/share/Pythia8
+PREFIX_BIN=/home/sergey/pythia/pythia8307/bin
+PREFIX_INCLUDE=/home/sergey/pythia/pythia8307/include
+PREFIX_LIB=/home/sergey/pythia/pythia8307/lib
+PREFIX_SHARE=/home/sergey/pythia/pythia8307/share/Pythia8
 
 # Compilation flags (see ./configure --help for further documentation).
 CXX=g++
@@ -22,10 +22,10 @@ EVTGEN_INCLUDE=
 EVTGEN_LIB=
 
 FASTJET3_USE=true
-FASTJET3_CONFIG=/home/sergey/Fastjet/fastjet-install/bin/fastjet-config
-FASTJET3_BIN=/home/sergey/Fastjet/fastjet-install/bin
-FASTJET3_INCLUDE=-I/home/sergey/Fastjet/fastjet-install/include
-FASTJET3_LIB=-Wl,-rpath,/home/sergey/Fastjet/fastjet-install/lib -L/home/sergey/Fastjet/fastjet-install/lib -lfastjettools -lfastjet -lm
+FASTJET3_CONFIG=/home/sergey/fastjet/fastjet-3.4.0
+FASTJET3_BIN=/home/sergey/fastjet/fastjet-3.4.0/src
+FASTJET3_INCLUDE=-I/home/sergey/fastjet/fastjet-3.4.0/include
+FASTJET3_LIB=-Wl,-rpath,/home/sergey/fastjet/fastjet-3.4.0/lib -L/home/sergey/fastjet/fastjet-3.4.0/lib -lfastjettools -lfastjet -lm
 
 HEPMC2_USE=false
 HEPMC2_CONFIG=
