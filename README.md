@@ -1,6 +1,6 @@
 # Jets_Comparison
 
-This is a simple project that allows to compare jets spectra /frac{d/sigma}{dp_T dy} for different event generators - Pythia8 (https://pythia.org/), Herwig7 (https://herwig.hepforge.org/) and Powheg (https://powhegbox.mib.infn.it/)
+This is a simple project that allows to compare jets spectra /frac{d/sigma}{dp_T dy} for different event generators - Pythia8(https://pythia.org/), Herwig7 (https://herwig.hepforge.org/) and Powheg (https://powhegbox.mib.infn.it/) in pp collisions
 
 To download run
 
@@ -13,10 +13,17 @@ Before running any macro create directories in directory you've downloaded this 
 ```sh
 mkdir -p data/Jets
 ```
+# Requirments
+
+Root6 (https://root.cern/)
+Pythia8 (https://pythia.org/)
+Herwig7 (https://herwig.hepforge.org/)
+Powheg Box (https://powhegbox.mib.infn.it/)
+FastJet (http://fastjet.fr/)
 
 # Pythia
 
-You need Pythia and Fastjet to be installed and paths in Makefile must be corrected for your configuration. Pythia will generate and process events and write jets spectra output as .txt file.
+Paths in Makefile must be corrected for your configuration. Pythia will generate and process events and write jets spectra output as .txt file.
 
 Before launch change setting to yours in pythia_jets.cc.
 
@@ -29,7 +36,7 @@ make pythia_jets
 
 # Herwig
 
-First you need to install and activate Herwig and go to directory Hewig_gen. Then you can generate events in Herwig after you change event genetation parameters to yours in Herwig_gen.in, snippets/PPCollider.in and in snippets/HepMC.in. Herwig will write output as .HepMC file
+First you need activate Herwig and go to directory Hewig_gen. Then you can generate events in Herwig after you change event genetation parameters to yours in Herwig_gen.in, snippets/PPCollider.in and in snippets/HepMC.in. Herwig will write output as .HepMC file
 
 ```sh
 Herwig read Herwig_gen.in
@@ -48,7 +55,7 @@ Not ready yet
 
 # Comparing jets
 
-After getting spectra for different programms set your parameters and output and input files paths in jetsComparison.cc and run it via root (https://root.cern/)
+After getting spectra for different programms set your parameters and output and input files paths in jetsComparison.cc and run it via root
 
 ```sh
 root jetsComparison.cc
