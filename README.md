@@ -15,11 +15,11 @@ mkdir -p data/Jets
 ```
 # Required packages
 
-- Root6 (https://root.cern/) <br />
-- Pythia8 (https://pythia.org/) <br />
-- Herwig7 (https://herwig.hepforge.org/) <br />
-- Powheg-Box (https://powhegbox.mib.infn.it/) <br />
-- FastJet3 (http://fastjet.fr/) <br />
+- Root6 https://root.cern/ <br />
+- Pythia8 https://pythia.org/ <br />
+- Herwig7 https://herwig.hepforge.org/ <br />
+- Powheg-Box https://powhegbox.mib.infn.it/ <br />
+- FastJet3 http://fastjet.fr/ <br />
 
 # Pythia
 
