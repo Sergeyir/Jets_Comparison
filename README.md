@@ -1,6 +1,6 @@
 # Jets_Comparison
 
-This is a simple project that allows to compare jets spectra /frac{d/sigma}{dp_Tdy} for different event generators - Pythia8 (https://pythia.org/), Herwig7 (https://herwig.hepforge.org/) and Pawheg (https://powhegbox.mib.infn.it/)
+This is a simple project that allows to compare jets spectra /frac{d/sigma}{dp_T dy} for different event generators - Pythia8 (https://pythia.org/), Herwig7 (https://herwig.hepforge.org/) and Pawheg (https://powhegbox.mib.infn.it/)
 
 To download run
 
