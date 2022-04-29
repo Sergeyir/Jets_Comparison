@@ -2,6 +2,16 @@
 
 This is a simple project that allows to compare jets spectra \frac{d\sigma}{dp_T dy} for different event generators - Pythia8(https://pythia.org/), Herwig7 (https://herwig.hepforge.org/) and Powheg (https://powhegbox.mib.infn.it/) in pp collisions
 
+# Required packages
+
+- Root6       https://root.cern/ <br />
+- Pythia8     https://pythia.org/ <br />
+- Herwig7     https://herwig.hepforge.org/ <br />
+- Powheg-Box  https://powhegbox.mib.infn.it/ <br />
+- FastJet3    http://fastjet.fr/ <br />
+- 
+# Installation
+
 To download run
 
 ```sh
@@ -13,13 +23,6 @@ Before running any macro create directories in directory you've downloaded this 
 ```sh
 mkdir -p data/Jets
 ```
-# Required packages
-
-- Root6       https://root.cern/ <br />
-- Pythia8     https://pythia.org/ <br />
-- Herwig7     https://herwig.hepforge.org/ <br />
-- Powheg-Box  https://powhegbox.mib.infn.it/ <br />
-- FastJet3    http://fastjet.fr/ <br />
 
 # Pythia
 
