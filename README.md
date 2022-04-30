@@ -1,13 +1,13 @@
 # Overview
 
-This is a simple project that allows to compare jets spectra \frac{d\sigma}{dp_T dy} for different event generators - Pythia8(https://pythia.org/), Herwig7 (https://herwig.hepforge.org/) and Powheg (https://powhegbox.mib.infn.it/) in pp collisions. In this project as an example pp collision energy is 13000 GeV.
+This is a simple project that allows to compare jets spectra \frac{d\sigma}{dp_T dy} for different event generators - Pythia8(https://pythia.org/) for LO processes, Herwig7 (https://herwig.hepforge.org/) for NLO processes and Powheg (https://powhegbox.mib.infn.it/) for NNLO processes in pp collisions. In this project as an example pp collision energy is 13000 GeV.
 
 # Required packages
 
 - Root6       https://root.cern/ <br />
 - Pythia8     https://pythia.org/ <br />
 - Herwig7     https://herwig.hepforge.org/ <br />
-- Powheg-Box  https://powhegbox.mib.infn.it/ <br />
+- POWHEG-BOX-V2  https://powhegbox.mib.infn.it/ <br />
 - FastJet3    http://fastjet.fr/ <br />
 
 # Installation
