@@ -21,7 +21,7 @@ git clone https://github.com/Sergeyir/Jets_Comparison
 Before running any macro create directories in directory you've installed this project
 
 ```sh
-mkdir -p data/Jets
+mkdir -p Jets_Comparison/data/Jets
 ```
 
 # Pythia
