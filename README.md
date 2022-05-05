@@ -1,6 +1,6 @@
 # Overview
 
-This is a simple project that allows to compare jets spectra \frac{d\sigma}{dp_T dy} for different processes in Monte Carlo event generation process - Pythia8(https://pythia.org/) for LO processes, Herwig7 (https://herwig.hepforge.org/) for NLO processes and Powheg (https://powhegbox.mib.infn.it/) for NNLO processes in pp collisions. In this project as an example pp collision energy is 13000 GeV.
+This is a simple project that allows to compare jets spectra \frac{d\sigma}{dp_T dy} for different processes in Monte Carlo event generation process - Pythia8(https://pythia.org/), Herwig7 (https://herwig.hepforge.org/) and Powheg (https://powhegbox.mib.infn.it/) for LO processes in pp collisions. In this project as an example pp collision energy is 13000 GeV.
 
 # Required packages
 
